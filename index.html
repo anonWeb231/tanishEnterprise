@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanish Enterprise | Industrial Parts Dealer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Removed all blur and dark filters */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Clean placeholder style */
+        .img-box { 
+            background: #f8fafc; 
+            border: 1px solid #e2e8f0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal { display: none; position: fixed; z-index: 100; inset: 0; background: rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body class="bg-white font-sans text-slate-800">
+
+    <!-- Clean Navigation -->
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded"></div>
+                <h1 class="text-xl font-bold text-slate-900 tracking-tight">Tanish Enterprise</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 font-semibold text-sm">
+                <a href="#products" class="hover:text-blue-600 transition">Products</a>
+                <a href="#gallery" class="hover:text-blue-600 transition">Spares Catalog</a>
+                <button onclick="toggleModal('quote-modal')" class="bg-blue-600 text-white px-6 py-2 rounded shadow-md hover:bg-blue-700 transition">Inquire Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bright Hero Section -->
+    <header class="relative bg-slate-50 py-24 border-b border-slate-100">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <span class="text-blue-600 font-bold tracking-widest text-xs uppercase">Premium Dealer</span>
+                <h2 class="text-5xl md:text-6xl font-black text-slate-900 leading-tight mt-4 mb-6">Quality Spares. <br><span class="text-blue-600">Fast Repair.</span></h2>
+                <p class="text-lg text-slate-600 mb-8 max-w-lg">Authorized supplier of Wilo precision pump components and Rapp-it emergency pipe repair technology.</p>
+                <div class="flex gap-4">
+                    <button onclick="toggleModal('quote-modal')" class="bg-slate-900 text-white px-8 py-3 rounded font-bold hover:bg-slate-800 transition">Get a Quote</button>
+                    <a href="#products" class="bg-white border border-slate-200 px-8 py-3 rounded font-bold hover:bg-slate-50 transition text-center">View Brands</a>
+                </div>
+            </div>
+            <div class="reveal relative">
+                <!-- Local Image: images/hero-main.jpg -->
+                <div class="img-box w-full h-[400px] rounded-2xl shadow-2xl overflow-hidden">
+                    <img src="images/hero.avif" alt="Industrial Equipment" class="w-full h-full object-cover">
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+   <!-- Product Branding Section -->
+<section id="products" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Rapp-it -->
+            <div class="bg-orange-50 p-10 rounded-3xl border border-orange-100 reveal flex flex-col">
+                <h3 class="text-orange-700 font-black text-3xl mb-4">RAPP-IT</h3>
+                <p class="text-orange-900/70 font-medium mb-6">The global standard in emergency pipe repair. Fix any leak in 30 minutes with our industrial-strength bandages.</p>
+                
+                <!-- Increased height to h-64 and removed p-4 -->
+                <div class="img-box h-64 rounded-xl mb-6 bg-white border border-orange-200 overflow-hidden">
+                    <img src="images/rappit.jpg" alt="Rapp-it Kit" class="w-full h-full object-cover">
+                </div>
+
+                <ul class="text-orange-800 text-sm space-y-2 font-semibold">
+                    <li>• Works Under Water</li>
+                    <li>• 360 PSI Pressure Rated</li>
+                    <li>• Chemical & Fuel Resistant</li>
+                </ul>
+            </div>
+
+            <!-- Wilo -->
+            <div class="bg-blue-50 p-10 rounded-3xl border border-blue-100 reveal flex flex-col">
+                <h3 class="text-blue-700 font-black text-3xl mb-4">WILO SPARES</h3>
+                <p class="text-blue-900/70 font-medium mb-6">Original German-engineered spare parts. We supply genuine seals, impellers, and motors for all Wilo pump ranges.</p>
+                
+                <!-- Increased height to h-64 and removed p-4 -->
+                <div class="img-box h-64 rounded-xl mb-6 bg-white border border-blue-200 overflow-hidden">
+                    <img src="images/wiloSpares.avif" alt="Wilo Spares" class="w-full h-full object-cover">
+                </div>
+
+                <ul class="text-blue-800 text-sm space-y-2 font-semibold">
+                    <li>• Genuine Mechanical Seals</li>
+                    <li>• High-Efficiency Impellers</li>
+                    <li>• Control Modules & Sensors</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Clean Spares Gallery -->
+    <section id="gallery" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6 text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">Spares & Inventory</h2>
+            <p class="text-slate-500">Fast shipping on all stocked components</p>
+        </div>
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="img-box h-48 rounded-xl shadow-sm bg-white" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="images/part1.jpg" alt="Part 1" class="w-full h-full object-cover rounded-xl">
+            </div>
+            <div class="img-box h-48 rounded-xl shadow-sm bg-white" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="images/part2.jpg" alt="Part 2" class="w-full h-full object-cover rounded-xl">
+            </div>
+            <div class="img-box h-48 rounded-xl shadow-sm bg-white" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="images/part3.jpg" alt="Part 3" class="w-full h-full object-cover rounded-xl">
+            </div>
+            <div class="img-box h-48 rounded-xl shadow-sm bg-white" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="images/part4.jpg" alt="Part 4" class="w-full h-full object-cover rounded-xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Quote Modal -->
+    <div id="quote-modal" class="modal items-center justify-center p-4">
+        <div class="bg-white p-10 rounded-xl w-full max-w-lg shadow-2xl">
+            <h3 class="text-2xl font-bold mb-2">Request Technical Quote</h3>
+            <p class="text-slate-500 mb-6">Send us your part number or pump model.</p>
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Inquiry Sent!'); toggleModal('quote-modal')">
+                <input type="text" placeholder="Full Name" class="w-full p-3 border border-slate-200 rounded outline-none focus:border-blue-600 transition" required>
+                <input type="email" placeholder="Work Email" class="w-full p-3 border border-slate-200 rounded outline-none focus:border-blue-600 transition" required>
+                <textarea placeholder="List part numbers (e.g. Wilo Mechanical Seal 22mm)..." class="w-full p-3 border border-slate-200 rounded h-32 outline-none focus:border-blue-600 transition"></textarea>
+                <button class="w-full bg-blue-600 text-white font-bold py-4 rounded hover:bg-blue-700 transition">Submit Inquiry</button>
+                <button type="button" onclick="toggleModal('quote-modal')" class="w-full text-slate-400 text-sm">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Info / Footer -->
+    <footer class="py-12 border-t border-slate-100">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-bold text-slate-900 mb-2 uppercase tracking-widest">Tanish Enterprise</p>
+            <p class="text-slate-500 mb-6">The Reliable Dealer for Rapp-it & Wilo</p>
+            <div class="text-sm text-slate-400">
+                <p>Email: sales@tanishenterprise.com | Phone: +91 8888843908</p>
+                <p class="mt-4">&copy; 2026 Tanish Enterprise Industrial. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Reveal Logic
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const revealTop = el.getBoundingClientRect().top;
+                if (revealTop < window.innerHeight - 50) {
+                    el.classList.add('active');
+                }
+            });
+        });
+
+        function toggleModal(id) {
+            const m = document.getElementById(id);
+            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        // Initialize reveal
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
